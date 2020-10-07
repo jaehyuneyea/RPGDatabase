@@ -1,11 +1,28 @@
-# My Personal Project
+# Jae Hyune Yea Personal Project
 
-## A subtitle
+## A turn-based RPG Game
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+*Project Proposal*
+- ***What will the application do?<br>***
+<br>
+I'm picturing this application to be a RPG style game that tackles aspects of <br>
+inventory, somewhat of a complex relationship with characters within the game, and
+a story that is choice-driven by the user with alternate endings. <br>
+<br>
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+
+- ***Who will use it?*** <br>
+<br>
+The main audience that I intend for this to be targeted towards are people who are just
+looking for a fun game to play, pass time and have interest in the RPG genre. <br>
+<br>
+
+- ***Why is this project of interest to you?*** <br>
+<br>
+I find this project interesting because I see games as something that I can insert my own style
+of humour, art, and writing skills into to ultimately tell show the user who I am as a person. 
+I've always had an interest in game design, and just thinking of features that your game might
+have and putting that into motion and adding the little by little to bring life to your creation is
+something incredibly exciting to me. 
+
+
