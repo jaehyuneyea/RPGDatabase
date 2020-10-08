@@ -24,5 +24,17 @@ of humour, art, and writing skills into to ultimately tell show the user who I a
 I've always had an interest in game design, and just thinking of features that your game might
 have and putting that into motion and adding the little by little to bring life to your creation is
 something incredibly exciting to me. 
+<br>
+<br>
+<br>
+## User Stories
+<br>
+
+- As a user, I want to be able to store new items in my inventory
+- As a user, I want to be able to view each item in detail about their stats
+- As a user, I want to be able to see a list of monsters available and their stats
+- As a user, I want to be able to engage in a test fight with the monster of my choice
+- As a user, I want to be able to see what abilities I can cast
+
 
 
