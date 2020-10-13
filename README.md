@@ -27,7 +27,9 @@ something incredibly exciting to me.
 <br>
 <br>
 <br>
+
 ## User Stories
+
 <br>
 
 - As a user, I want to be able to store new items in my inventory
