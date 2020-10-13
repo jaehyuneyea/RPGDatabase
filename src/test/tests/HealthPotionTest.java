@@ -2,7 +2,6 @@ package tests;
 
 import model.interactables.MainCharacter;
 import model.items.HealthPotion;
-import model.items.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,38 +15,38 @@ public class HealthPotionTest {
     @BeforeEach
     public void setup() {
         hp = new HealthPotion();
-        mc = new MainCharacter("Phil",20,10,10);
+        mc = new MainCharacter("Phil",20,10);
     }
 
     @Test
     public void testConstructor() {
         assertEquals("HealthPotion",hp.getName());
-        assertEquals("heals the user for 10 HP", hp.getDetail());
+        assertEquals("A bottle containing a magical potion. Heals the user for 10 HP.", hp.getDetail());
         assertFalse(hp.isEquippable());
     }
 
     @Test
     public void testHealPotion() {
         mc.setHP(10);
-        assertEquals(10, mc.getHP());
-        hp.healPotion();
-        assertEquals(20,mc.getHP());
+        assertEquals(10, mc.getCurrentHP());
+        hp.healPotion(mc);
+        assertEquals(20,mc.getCurrentHP());
     }
 
     @Test
     public void testHealPotionFull() {
         mc.setHP(13);
-        assertEquals(13,mc.getHP());
-        hp.healPotion();
-        assertEquals(20, mc.getHP());
+        assertEquals(13,mc.getCurrentHP());
+        hp.healPotion(mc);
+        assertEquals(20, mc.getCurrentHP());
     }
 
     @Test
     public void testHealPotionNotFull() {
         mc.setHP(7);
-        assertEquals(7,mc.getHP());
-        hp.healPotion();
-        assertEquals(17,mc.getHP());
+        assertEquals(7,mc.getCurrentHP());
+        hp.healPotion(mc);
+        assertEquals(17,mc.getCurrentHP());
     }
 
 

@@ -12,14 +12,13 @@ public class CombatEntityTest {
 
     @BeforeEach
     public void setup() {
-        testEntity = new Monster("TestMonster",20,5,5);
+        testEntity = new Monster("TestMonster",20,5);
     }
 
     @Test
     public void testConstructor() {
-        assertEquals(20,testEntity.getHP());
+        assertEquals(20,testEntity.getCurrentHP());
         assertEquals(5,testEntity.getAttack());
-        assertEquals(5,testEntity.getDefense());
         assertEquals("TestMonster",testEntity.getName());
     }
 

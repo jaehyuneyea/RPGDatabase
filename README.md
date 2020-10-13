@@ -35,8 +35,8 @@ something incredibly exciting to me.
 - As a user, I want to be able to store new items in my inventory
 - As a user, I want to be able to view each item in detail about their stats
 - As a user, I want to be able to see a list of monsters available and their stats
-- As a user, I want to be able to engage in a test fight with the monster of my choice
-- As a user, I want to be able to see what abilities I can cast
+- As a user, I want to be able to interact with the items by consuming or equipping them.
+
 
 
 

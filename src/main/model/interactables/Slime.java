@@ -1,9 +1,14 @@
 package model.interactables;
 
 public class Slime extends Monster {
+    protected String detail;
 
+    public Slime() {
+        super("Slime", 10, 1);
+        this.detail = "A squishy, green slime. Hostile but really harmless.";
+    }
 
-    public Slime(String name, int hp, int atk, int def) {
-        super(name, hp, atk, def);
+    public String getDetail() {
+        return detail;
     }
 }

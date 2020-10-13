@@ -12,13 +12,14 @@ public class SlimeTest {
 
     @BeforeEach
     public void setup() {
-        slimeTest = new Slime("Slime",10,1,0);
+        slimeTest = new Slime();
     }
 
     @Test
     public void testConstructor() {
         assertEquals(1, slimeTest.getAttack());
-        assertEquals(0, slimeTest.getDefense());
-        assertEquals(10, slimeTest.getHP());
+        assertEquals(10, slimeTest.getCurrentHP());
+        assertEquals("A squishy, green slime. Hostile but really harmless.", slimeTest.getDetail());
+        assertEquals("Slime",slimeTest.getName());
     }
 }
