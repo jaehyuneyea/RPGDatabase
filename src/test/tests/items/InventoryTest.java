@@ -5,6 +5,10 @@ import model.items.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryTest {
@@ -79,5 +83,13 @@ public class InventoryTest {
         assertEquals(2,inv.length());
         inv.clearInv();
         assertEquals(0,inv.length());
+    }
+
+    @Test
+    public void testGetInventoryName() {
+        List<String> x = new LinkedList<>();
+        x.add("HealthPotion");
+        inv.addItem(item1);
+        assertEquals(x.get(0) ,inv.getInventoryName().get(0));
     }
 }
