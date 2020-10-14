@@ -110,4 +110,10 @@ public class MainCharacterTest {
         assertEquals(20,mc.getCurrentHP());
         assertEquals(2,inv.length());
     }
+
+    @Test
+    public void testSetCurrentlyEquipped() {
+        mc.setCurrentlyEquipped(item1);
+        assertEquals("sword", mc.getCurrentlyEquipped());
+    }
 }

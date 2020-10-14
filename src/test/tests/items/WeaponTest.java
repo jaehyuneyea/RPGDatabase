@@ -29,6 +29,7 @@ public class WeaponTest {
 
     @Test
     public void testAddWeapon() {
+        assertEquals(10,c.getAttack());
         weapon.addWeapon(c);
         assertEquals(30,c.getAttack());
         assertEquals(10,c.getCurrentHP());

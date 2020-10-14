@@ -20,6 +20,7 @@ public class CombatEntityTest {
         assertEquals(20,testEntity.getCurrentHP());
         assertEquals(5,testEntity.getAttack());
         assertEquals("TestMonster",testEntity.getName());
+        assertEquals(20, testEntity.getMaxHealth());
     }
 
     @Test
