@@ -10,7 +10,7 @@ public class Weapon extends Equippable {
     // gloves = 1
     // staff = 2
     public Weapon(String name, String detail, int atk) {
-        super(name,detail,atk);
+        super(name, detail, atk);
         this.atk = atk;
 
     }
@@ -22,6 +22,7 @@ public class Weapon extends Equippable {
         mc.addAttack(atk);
     }
 
+    // getters
     public int getAttackItem() {
         return atk;
     }

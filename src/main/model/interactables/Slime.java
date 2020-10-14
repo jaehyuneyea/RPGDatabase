@@ -8,6 +8,8 @@ public class Slime extends Monster {
         this.detail = "A squishy, green slime. Hostile but really harmless.";
     }
 
+    // getters
+
     public String getDetail() {
         return detail;
     }

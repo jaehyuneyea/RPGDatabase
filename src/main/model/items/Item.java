@@ -5,7 +5,6 @@ public abstract class Item {
     protected String detail;
     protected boolean canEquip;
 
-
     // EFFECTS: creates a new item with name, detail and whether it's equippable or consumable
     // canEquip = false = consumable
     // canEquip = true = equippable
@@ -15,16 +14,18 @@ public abstract class Item {
         this.canEquip = canEquip;
     }
 
+    public boolean isEquippable() {
+        return canEquip;
+    }
+
+    // getters
+
     public String getDetail() {
         return detail;
     }
 
     public String getName() {
         return name;
-    }
-
-    public boolean isEquippable() {
-        return canEquip;
     }
 
 }

@@ -1,4 +1,4 @@
-package tests;
+package tests.interactables;
 
 import model.interactables.Slime;
 import org.junit.jupiter.api.BeforeEach;

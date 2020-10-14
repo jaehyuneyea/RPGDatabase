@@ -1,4 +1,4 @@
-package tests;
+package tests.items;
 
 import model.interactables.MainCharacter;
 import model.items.HealthPotion;

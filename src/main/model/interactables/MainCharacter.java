@@ -9,11 +9,14 @@ import java.util.LinkedList;
 
 public class MainCharacter extends CombatEntity {
     protected boolean equipW;
+    protected Inventory inventory;
+    protected String currentlyEquipped;
 
 
     // EFFECTS: creates a new Character with health, name attack and defense with wooden sword and no items
     public MainCharacter(String name, int health, int attack) {
         super(name, health, attack);
+        inventory = new Inventory();
     }
 
 
@@ -47,6 +50,7 @@ public class MainCharacter extends CombatEntity {
     public boolean equip(Weapon w) {
         if (!(isEquippedWeapon())) {
             w.addWeapon(this);
+            setCurrentlyEquipped(w);
             equipW = true;
             return true;
         }
@@ -58,7 +62,22 @@ public class MainCharacter extends CombatEntity {
     // EFFECTS: consumes the item and receive its effects
     public void consume(HealthPotion hp) {
         hp.healPotion(this);
+        inventory.throwAway(hp);
         // TODO: as of right now, the potion is not removed from the inventory when consumed.
         // fix this later by having inventory be part of the MainCharacter class?
+    }
+
+    // setters
+
+    // EFFECTS: gives the weapon inserted to the main character
+    public void setCurrentlyEquipped(Weapon w) {
+        this.currentlyEquipped = w.getName();
+    }
+
+    // getters
+
+    // EFFECTS: returns the name of the weapon the character is holding
+    public String getCurrentlyEquipped() {
+        return currentlyEquipped;
     }
 }

@@ -1,4 +1,4 @@
-package tests;
+package tests.items;
 
 import model.interactables.MainCharacter;
 import model.items.*;
@@ -70,5 +70,14 @@ public class InventoryTest {
         inv.addItem(item1);
         inv.addItem(item2);
         assertEquals(2,inv.length());
+    }
+
+    @Test
+    public void testClearInv() {
+        inv.addItem(item1);
+        inv.addItem(item2);
+        assertEquals(2,inv.length());
+        inv.clearInv();
+        assertEquals(0,inv.length());
     }
 }

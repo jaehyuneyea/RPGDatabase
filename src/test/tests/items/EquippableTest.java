@@ -1,4 +1,4 @@
-package tests;
+package tests.items;
 
 import model.items.Equippable;
 import model.items.Weapon;

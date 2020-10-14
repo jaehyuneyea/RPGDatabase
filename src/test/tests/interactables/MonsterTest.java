@@ -1,4 +1,4 @@
-package tests;
+package tests.interactables;
 
 import model.interactables.MainCharacter;
 import model.interactables.Monster;

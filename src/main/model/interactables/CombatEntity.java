@@ -15,6 +15,27 @@ public abstract class CombatEntity {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    // EFFECTS: true if MainCharacter HP > 0
+    //          false otherwise
+    public boolean isAlive() {
+        return currentHealth > 0;
+    }
+
+    // setters
+
+    // REQUIRES: 0 < hp < MAX_HEALTH
+    // MODIFIES: this
+    // EFFECTS: sets the character's hp to the value
+    public void setHP(int hp) {
+        currentHealth = hp;
+    }
+
+    // getters
+
     public int getCurrentHP() {
         return currentHealth;
     }
@@ -25,22 +46,5 @@ public abstract class CombatEntity {
 
     public int getAttack() {
         return attack;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    // REQUIRES: 0 < hp < MAX_HEALTH
-    // MODIFIES: this
-    // EFFECTS: sets the character's hp to the value
-    public void setHP(int hp) {
-        currentHealth = hp;
-    }
-
-    // EFFECTS: true if MainCharacter HP > 0
-    //          false otherwise
-    public boolean isAlive() {
-        return currentHealth > 0;
     }
 }
