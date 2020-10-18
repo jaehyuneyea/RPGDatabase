@@ -32,11 +32,21 @@ something incredibly exciting to me.
 
 <br>
 
+**Phase 1**
+
 - As a user, I want to be able to store new items in my inventory
 - As a user, I want to be able to view each item in detail about their stats
 - As a user, I want to be able to see a list of monsters available and their stats
 - As a user, I want to be able to interact with the items equipping them
 - As a user, I want to be able to view my stats as a player.
+<br>
+<br>
+
+**Phase 2**
+
+- As a user, I want to be able to save my inventory and my equips to a file
+- As a user, I want to be able to load my inventory and equips from a file
+
 
 
 
