@@ -44,8 +44,8 @@ something incredibly exciting to me.
 
 **Phase 2**
 
-- As a user, I want to be able to save my inventory and my equips to a file
-- As a user, I want to be able to load my inventory and equips from a file
+- As a user, I want to be able to save my inventory to a file
+- As a user, I want to be able to load my inventory from a file
 
 
 

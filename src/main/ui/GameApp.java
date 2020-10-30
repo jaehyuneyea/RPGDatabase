@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+// runs the game application
 public class GameApp {
     private static final String JSON_STORE = "./data/inventory.json";
     private Slime slime;
