@@ -1,10 +1,12 @@
-package persistence;
+package tests.persistence;
 
 import model.items.HealthPotion;
 import model.items.Inventory;
 import model.items.Item;
 import model.items.WoodenSword;
 import org.junit.jupiter.api.Test;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import java.io.IOException;
 import java.util.List;
