@@ -1,0 +1,15 @@
+{
+    "items": [
+      {
+          "name": "HealthPotion",
+          "detail": "A bottle containing a magical potion. Heals the user for 10 HP.",
+          "canEquip": false
+      },
+      {
+          "name": "Iron Sword",
+          "detail": "A well-built sturdy sword composed of iron.",
+          "canEquip": true
+      }
+    ],
+    "name": "My Inventory"
+}

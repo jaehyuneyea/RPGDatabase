@@ -2,6 +2,10 @@ package model.items;
 
 import model.interactables.MainCharacter;
 
+/**
+ * a health potion item that the main character can consume.
+ */
+
 public class HealthPotion extends Item {
     public static final int HEAL_VALUE = 10;
     private String detail = "A bottle containing a magical potion. Heals the user for 10 HP.";

@@ -1,5 +1,9 @@
 package model.interactables;
 
+/**
+ * Represents the entities within the game that can engage in combat.
+ */
+
 public abstract class CombatEntity {
     protected String name;
     protected int maxHealth;

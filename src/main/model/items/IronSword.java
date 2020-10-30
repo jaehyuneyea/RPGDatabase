@@ -1,5 +1,9 @@
 package model.items;
 
+/**
+ * a iron sword weapon within the game.
+ */
+
 public class IronSword extends Weapon {
     public static final int IS_ATTACK_VALUE = 30;
     private static final String IS_DETAIL = "A well-built sturdy sword composed of iron.";

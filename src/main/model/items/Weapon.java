@@ -2,6 +2,10 @@ package model.items;
 
 import model.interactables.MainCharacter;
 
+/**
+ * an item that the main character can equip and wield.
+ */
+
 public class Weapon extends Equippable {
     protected int atk;
 

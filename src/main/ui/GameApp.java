@@ -1,12 +1,19 @@
 package ui;
 
 
-import model.interactables.*;
+import model.interactables.Dragon;
+import model.interactables.MainCharacter;
+import model.interactables.Slime;
 import model.items.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GameApp {
+    private static final String JSON_STORE = "./data/inventory.json";
     private Slime slime;
     private Dragon dragon;
     private Inventory inventory;
@@ -15,10 +22,12 @@ public class GameApp {
     private IronSword ironSword;
     private MainCharacter mainCharacter;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     // EFFECTS: runs the game application
-    public GameApp() {      // structure used from TellerApp
+    public GameApp() throws FileNotFoundException {      // structure used from TellerApp
         runGame();
     }
 
@@ -34,11 +43,13 @@ public class GameApp {
         while (keepGoing) {
             displayMenu();
             command = input.nextLine();
-            if (command.equals("5")) {
+            if (command.equals("7")) {
                 System.out.println("Goodbye!");
                 keepGoing = false;
+            } else {
+                processCommand(command);
             }
-            processCommand(command);
+
 
 
         }
@@ -53,7 +64,13 @@ public class GameApp {
     // EFFECTS: displays the options the user can choose
     public void displayMenu() {
         System.out.println("Select a number to choose from: ");
-        System.out.println("\n 1. Items \n 2. Monsters \n 3. Inventory \n 4. Stats \n 5. Quit");
+        System.out.println("1. Items");
+        System.out.println("2. Monsters ");
+        System.out.println("3. Inventory");
+        System.out.println("4. Stats");
+        System.out.println("5. Save");
+        System.out.println("6. Load");
+        System.out.println("7. Quit");
     }
 
     // EFFECTS: initializes the objects within the game
@@ -67,6 +84,8 @@ public class GameApp {
         mainCharacter = new MainCharacter("Player", 10, 5);
         input = new Scanner(System.in);
         // input structure used from https://www.youtube.com/watch?v=EpB9u4ItOYU&feature=emb_title
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: displays all the items available within the game
@@ -87,6 +106,10 @@ public class GameApp {
             inventoryMenu();
         } else if (command.equals("4")) {
             statMenu();
+        } else if (command.equals("5")) {
+            saveInventory();
+        } else if (command.equals("6")) {
+            loadInventory();
         } else {
             System.out.println("invalid command!");
         }
@@ -149,6 +172,8 @@ public class GameApp {
 
         if (command.equals("take")) {
             itemTake(healthPotion);
+        } else if (command.equals("quit")) {
+            System.out.println("returning to menu");
         } else {
             System.out.println("invalid command!");
         }
@@ -191,11 +216,13 @@ public class GameApp {
         String command = null;
         System.out.println("These are the items in your inventory: ");
         System.out.println(inventory.getInventoryName());
-        System.out.println("Type 'clear' to clear the inventory.");
+        System.out.println("Type 'clear' to clear the inventory, or 'back' to return to menu.");
         command = input.nextLine();
         if (command.equals("clear")) {
             inventory.clearInv();
             System.out.println("Inventory cleared!");
+        } else if (command.equals("back")) {
+            System.out.println("returning to menu");
         } else {
             System.out.println("invalid command!");
         }
@@ -230,5 +257,28 @@ public class GameApp {
         System.out.println(w.getName() + "\n" + w.getDetail());
         System.out.println("Attack: " + w.getAttackItem());
         System.out.println("\nType 'take' to insert into your inventory, 'equip' to equip or 'quit' to exit");
+    }
+
+    // EFFECTS: saves the inventory to file
+    private void saveInventory() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(inventory);
+            jsonWriter.close();
+            System.out.println("Saved " + inventory.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads inventory to file
+    private void loadInventory() {
+        try {
+            inventory = jsonReader.read();
+            System.out.println("Loaded " + inventory.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }

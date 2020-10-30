@@ -1,5 +1,9 @@
 package model.interactables;
 
+/**
+ * represents the enemy that the MainCharacter fights, tries to kill the MainCharacter.
+ */
+
 public class Monster extends CombatEntity {
     // should probably have health value, attack value (dependant on the mob)
     // abilities??

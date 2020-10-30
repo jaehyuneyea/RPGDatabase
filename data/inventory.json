@@ -1,0 +1,8 @@
+{
+    "name": "My Inventory",
+    "items": [{
+        "canEquip": false,
+        "name": "HealthPotion",
+        "detail": "A bottle containing a magical potion. Heals the user for 10 HP."
+    }]
+}

@@ -1,17 +1,26 @@
 package model.items;
 
-import model.interactables.MainCharacter;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Inventory {
+/**
+ * an inventory that stores items and the main character can access.
+ */
+
+public class Inventory implements Writable {
     private List<Item> inventory;
+    private String name;
 
     // EFFECTS: creates a new empty inventory
     public Inventory() {
         inventory = new LinkedList<>();
+        name = "My Inventory";
     }
 
     // MODIFIES: this
@@ -54,4 +63,30 @@ public class Inventory {
         return itemNames;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    // EFFECTS: get an unmodifiable list of items in the inventory
+    public List<Item> getItems() {
+        return Collections.unmodifiableList(inventory);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name",name);
+        json.put("items",itemsToJson());
+        return json;
+    }
+
+    private JSONArray itemsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Item i : inventory) {
+            jsonArray.put(i.toJson());
+        }
+
+        return jsonArray;
+    }
 }

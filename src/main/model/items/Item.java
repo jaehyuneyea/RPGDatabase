@@ -1,6 +1,13 @@
 package model.items;
 
-public abstract class Item {
+import org.json.JSONObject;
+import persistence.Writable;
+
+/**
+ * an object that the player can use and equip.
+ */
+
+public class Item implements Writable {
     protected String name;
     protected String detail;
     protected boolean canEquip;
@@ -28,4 +35,12 @@ public abstract class Item {
         return name;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("detail", detail);
+        json.put("canEquip", canEquip);
+        return json;
+    }
 }

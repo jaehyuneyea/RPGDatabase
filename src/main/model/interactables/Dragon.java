@@ -1,5 +1,9 @@
 package model.interactables;
 
+/**
+ * represents a dragon monster that appears in the game
+ */
+
 public class Dragon extends Monster {
     protected String detail;
 

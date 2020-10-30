@@ -4,8 +4,9 @@ import model.items.HealthPotion;
 import model.items.Inventory;
 import model.items.Weapon;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+/**
+ * represents the MainCharacter that you control within the game.
+ */
 
 public class MainCharacter extends CombatEntity {
     protected boolean equipW;
