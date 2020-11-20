@@ -18,6 +18,7 @@ public class MainCharacter extends CombatEntity {
     public MainCharacter(String name, int health, int attack) {
         super(name, health, attack);
         inventory = new Inventory();
+        currentlyEquipped = "none";
     }
 
 
@@ -79,6 +80,9 @@ public class MainCharacter extends CombatEntity {
 
     // EFFECTS: returns the name of the weapon the character is holding
     public String getCurrentlyEquipped() {
+        if (currentlyEquipped.equals("none")) {
+            return "None";
+        }
         return currentlyEquipped;
     }
 }

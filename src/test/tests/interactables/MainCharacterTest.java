@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MainCharacterTest {
     Monster monster;
     MainCharacter mc;
+    MainCharacter mc2;
     Inventory inv;
     Weapon item1;
     HealthPotion item2;
@@ -21,6 +22,7 @@ public class MainCharacterTest {
     public void setup() {
         monster = new Monster("TestMonster", 20, 5);
         mc = new MainCharacter("TestPerson", 20, 10);
+        mc2 = new MainCharacter("NoEquip",10,10);
         inv = new Inventory();
         item1 = new Weapon("sword","a test sword",10);
         item2 = new HealthPotion();
@@ -32,6 +34,8 @@ public class MainCharacterTest {
         inv.addItem(item1);
         mc.equip(item1);
         assertTrue(mc.isEquippedWeapon());
+        assertEquals("None",mc2.getCurrentlyEquipped());
+        assertEquals("sword",mc.getCurrentlyEquipped());
     }
 
 
