@@ -14,6 +14,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Hud {
     private static final int BUTTON_WIDTH = 135;
@@ -51,15 +53,16 @@ public class Hud {
     JLabel panelImage;
     JLabel inventorySideText;
     JLabel inventorySideText2;
-    String[] items = inv.getInventoryName().toArray(new String[inv.length()]);
-    JList inventoryList = new JList(items);
-    ImageIcon icon = new ImageIcon("./data/connor.png");
     Sprite sprite = new Sprite();
+    List<String> list = new ArrayList<>();
+    JList inventoryList = new JList(list.toArray());
+    DefaultListModel model = new DefaultListModel();
 
 
     public void initializeEntity() {
         slime = new Slime();
         dragon = new Dragon();
+
     }
 
     public void initializeItems() {
@@ -112,6 +115,12 @@ public class Hud {
     }
 
     public void setPanel() {
+
+//        list.add("what if the list is super long");
+//        list.add("how bout another one");
+
+        inventoryPanel.add(inventoryList, BorderLayout.EAST);
+
         initializeLabels();
         initializeHud();
         setPanelColors();
@@ -173,8 +182,7 @@ public class Hud {
 
         addStartButton();
 
-        startMenu.setBackground(Color.GREEN);
-        inventoryPanel.setBackground(Color.BLUE);
+        startMenu.setBackground(Color.LIGHT_GRAY);
         itemsPanel.setBackground(Color.RED);
         setMonsterPanel();
         setItemPanel();
@@ -189,13 +197,11 @@ public class Hud {
         buttonActionListeners();
     }
 
-    private void setInventoryPanel() {
+    public void setInventoryPanel() {
 
         JPanel inventorySidePanel = new JPanel();
-        inventoryPanel.add(inventoryList);
         inventorySideText.setText("Health: " + mc.getMaxHealth() + " Atk: " + mc.getAttack());
         inventorySideText2.setText("Currently Equipped: " + mc.getCurrentlyEquipped());
-        inventoryList.setVisible(true);
 
         inventorySidePanel.setPreferredSize(new Dimension(250, 100));
         inventorySidePanel.setBorder(grayline);
@@ -208,7 +214,7 @@ public class Hud {
     }
 
 
-    private void setItemPanel() {
+    public void setItemPanel() {
         JPanel itemSidePanel = new JPanel();
         JButton buttonWoodenSword = new JButton();
         JButton buttonIronSword = new JButton();
@@ -230,28 +236,28 @@ public class Hud {
         itemsPanel.setBackground(Color.LIGHT_GRAY);
     }
 
-    private void setIronSwordButton(JPanel itemSidePanel, JButton buttonIronSword) {
+    public void setIronSwordButton(JPanel itemSidePanel, JButton buttonIronSword) {
         itemSidePanel.add(buttonIronSword);
         buttonIronSword.setText(ironSword.getName());
         buttonIronSword.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
         ironSwordActionListener(buttonIronSword);
     }
 
-    private void setWoodenSwordButton(JPanel itemSidePanel, JButton buttonWoodenSword) {
+    public void setWoodenSwordButton(JPanel itemSidePanel, JButton buttonWoodenSword) {
         itemSidePanel.add(buttonWoodenSword);
         buttonWoodenSword.setText(woodenSword.getName());
         buttonWoodenSword.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
         woodenSwordActionListener(buttonWoodenSword);
     }
 
-    private void setHealthPotionButton(JPanel itemSidePanel, JButton buttonHealthPotion) {
+    public void setHealthPotionButton(JPanel itemSidePanel, JButton buttonHealthPotion) {
         itemSidePanel.add(buttonHealthPotion);
         buttonHealthPotion.setText(healthPotion.getName());
         buttonHealthPotion.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
         healthPotionActionListener(buttonHealthPotion);
     }
 
-    private void setMonsterPanel() {
+    public void setMonsterPanel() {
         JPanel monsterSidePanel = new JPanel();
         JButton buttonSlime = new JButton();
         JButton buttonDragon = new JButton();
@@ -269,14 +275,14 @@ public class Hud {
 
     }
 
-    private void setSlimeButton(JPanel monsterSidePanel, JButton buttonSlime) {
+    public void setSlimeButton(JPanel monsterSidePanel, JButton buttonSlime) {
         monsterSidePanel.add(buttonSlime);
         buttonSlime.setText(slime.getName());
         buttonSlime.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
         slimeActionListener(buttonSlime);
     }
 
-    private void setDragonButton(JPanel monsterSidePanel, JButton buttonDragon) {
+    public void setDragonButton(JPanel monsterSidePanel, JButton buttonDragon) {
         monsterSidePanel.add(buttonDragon);
         buttonDragon.setText(dragon.getName());
         buttonDragon.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
@@ -284,7 +290,7 @@ public class Hud {
 
     }
 
-    private void buttonActionListeners() {
+    public void buttonActionListeners() {
         startButtonActionListener();
 
         toItemsActionListener();
@@ -294,27 +300,27 @@ public class Hud {
         toMonstersActionListener();
     }
 
-    private void setInvButton() {
+    public void setInvButton() {
         panel1.add(toInv);
         toInv.setText("Inventory");
         toInv.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 
     }
 
-    private void setItemsButton() {
+    public void setItemsButton() {
         panel1.add(toItems);
         toItems.setText("Items");
         toItems.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 
     }
 
-    private void setMonstersButton() {
+    public void setMonstersButton() {
         panel1.add(toMonsters);
         toMonsters.setText("Monsters");
         toMonsters.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
     }
 
-    private void ironSwordActionListener(JButton buttonIronSword) {
+    public void ironSwordActionListener(JButton buttonIronSword) {
         buttonIronSword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -336,7 +342,7 @@ public class Hud {
         });
     }
 
-    private void setEquipIS() {
+    public void setEquipIS() {
         panel2.add(equipIS);
         equipIS.setText("Equip");
         equipIS.addActionListener(new ActionListener() {
@@ -354,12 +360,15 @@ public class Hud {
         });
     }
 
-    private void setAddInvIS() {
+    public void setAddInvIS() {
         panel2.add(addInvIS);
         addInvIS.setText("Add to Inventory");
         addInvIS.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                model.addElement(ironSword.getName());
+                inventoryList.setModel(model);
+                inventoryPanel.add(inventoryList);
                 inv.addItem(ironSword);
                 JOptionPane.showMessageDialog(
                         null, "added to inventory!");
@@ -367,7 +376,7 @@ public class Hud {
         });
     }
 
-    private void woodenSwordActionListener(JButton buttonWoodenSword) {
+    public void woodenSwordActionListener(JButton buttonWoodenSword) {
         buttonWoodenSword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -389,7 +398,7 @@ public class Hud {
         });
     }
 
-    private void setEquipWS() {
+    public void setEquipWS() {
         panel2.add(equipWS);
         equipWS.setText("Equip");
         equipWS.addActionListener(new ActionListener() {
@@ -412,12 +421,15 @@ public class Hud {
 
     }
 
-    private void setAddInvWS() {
+    public void setAddInvWS() {
         addInvWS.setText("Add to Inventory");
         panel2.add(addInvWS);
         addInvWS.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                model.addElement(woodenSword.getName());
+                inventoryList.setModel(model);
+                inventoryPanel.add(inventoryList);
                 inv.addItem(woodenSword);
                 JOptionPane.showMessageDialog(
                         null, "added to inventory!");
@@ -425,7 +437,7 @@ public class Hud {
         });
     }
 
-    private void healthPotionActionListener(JButton buttonHealthPotion) {
+    public void healthPotionActionListener(JButton buttonHealthPotion) {
         buttonHealthPotion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -446,12 +458,15 @@ public class Hud {
         });
     }
 
-    private void setAddInvHP() {
+    public void setAddInvHP() {
         panel2.add(addInvHP);
         addInvHP.setText("Add to Inventory");
         addInvHP.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                model.addElement(healthPotion.getName());
+                inventoryList.setModel(model);
+                inventoryPanel.add(inventoryList);
                 inv.addItem(healthPotion);
                 JOptionPane.showMessageDialog(
                         null, "added to inventory!");
@@ -459,7 +474,7 @@ public class Hud {
         });
     }
 
-    private void slimeActionListener(JButton buttonSlime) {
+    public void slimeActionListener(JButton buttonSlime) {
         buttonSlime.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -473,7 +488,7 @@ public class Hud {
         });
     }
 
-    private void dragonActionListener(JButton buttonDragon) {
+    public void dragonActionListener(JButton buttonDragon) {
         buttonDragon.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -487,10 +502,12 @@ public class Hud {
         });
     }
 
-    private void toMonstersActionListener() {
+    public void toMonstersActionListener() {
         toMonsters.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                equipIS.setVisible(false);
+                equipWS.setVisible(false);
                 addInvHP.setVisible(false);
                 addInvIS.setVisible(false);
                 addInvWS.setVisible(false);
@@ -500,10 +517,12 @@ public class Hud {
         });
     }
 
-    private void toInvActionListener() {
+    public void toInvActionListener() {
         toInv.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                equipIS.setVisible(false);
+                equipWS.setVisible(false);
                 addInvHP.setVisible(false);
                 addInvIS.setVisible(false);
                 addInvWS.setVisible(false);
@@ -513,10 +532,12 @@ public class Hud {
         });
     }
 
-    private void toItemsActionListener() {
+    public void toItemsActionListener() {
         toItems.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                equipIS.setVisible(false);
+                equipWS.setVisible(false);
                 addInvHP.setVisible(false);
                 addInvIS.setVisible(false);
                 addInvWS.setVisible(false);
@@ -526,7 +547,7 @@ public class Hud {
         });
     }
 
-    private void startButtonActionListener() {
+    public void startButtonActionListener() {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

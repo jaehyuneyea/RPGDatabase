@@ -1,5 +1,6 @@
 package ui;
 
+import model.items.HealthPotion;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -27,6 +28,8 @@ public class Gui extends JFrame implements ActionListener {
     JMenuItem loadItem;
     JMenuItem exitItem;
 
+    HealthPotion healthPotion = new HealthPotion();
+
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
@@ -34,6 +37,12 @@ public class Gui extends JFrame implements ActionListener {
 
 
     public Gui() {
+//        Inventory inv = new Inventory();
+//        inv.addItem(healthPotion);
+//        inv.addItem(healthPotion);
+//        JList jlist = new JList(inv.getInventoryName().toArray());
+
+//        frame.add(inventoryList);
         initializeJSon();
         setJFrame();
         setTransitionPanels();
@@ -120,7 +129,7 @@ public class Gui extends JFrame implements ActionListener {
 
     }
 
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == saveItem) {
@@ -153,6 +162,8 @@ public class Gui extends JFrame implements ActionListener {
     private void loadInventory() {
         try {
             hud.inv = jsonReader.read();
+            hud.model.addElement(hud.inv.getInventoryName());
+            hud.inventoryList.setModel(hud.model);
             JOptionPane.showMessageDialog(
                     null, "Successfully loaded!", "Loaded!", JOptionPane.PLAIN_MESSAGE);
         } catch (IOException e) {
