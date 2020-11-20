@@ -58,20 +58,24 @@ public class Hud {
     JList inventoryList = new JList(list.toArray());
     DefaultListModel model = new DefaultListModel();
 
-
+    //MODIFIES: this
+    // EFFECTS: initializes the entities
     public void initializeEntity() {
         slime = new Slime();
         dragon = new Dragon();
 
     }
 
+    //MODIFIES: this
+    // EFFECTS: initializes the items
     public void initializeItems() {
         woodenSword = new WoodenSword();
         ironSword = new IronSword();
         healthPotion = new HealthPotion();
     }
 
-
+    //MODIFIES: this
+    // EFFECTS: initializes all the buttons
     public void initializeButtons() {
         toItems = new JButton();
         toInv = new JButton();
@@ -83,11 +87,15 @@ public class Hud {
         equipWS = new JButton();
     }
 
+    //MODIFIES: this
+    // EFFECTS: initializes the main panels
     public void initializeHud() {
         panel1 = new JPanel();
         panel2 = new JPanel();
     }
 
+    //MODIFIES: this
+    // EFFECTS: initializes all the labels
     public void initializeLabels() {
         panelDetail = new JLabel();
         panelImage = new JLabel();
@@ -96,11 +104,15 @@ public class Hud {
 
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the detail panel
     public void setDetailPanel() {
         panelDetail.setText(HTML_LINE_BREAK_1 + "Welcome! Have a look around." + HTML_LINE_BREAK_2);
         panelAlignment();
     }
 
+    //MODIFIES: this
+    // EFFECTS: aligns the detail panel
     private void panelAlignment() {
         panelDetail.setFont(new Font("Arial", Font.BOLD, 15));
         panelDetail.setBorder(new EmptyBorder(25, 0, 0, 0));
@@ -108,17 +120,17 @@ public class Hud {
         panel2.add(panelDetail);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets text that comes with the image
     public void setImageText() {
         panelImage.setFont(new Font("Calibri", Font.BOLD, 20));
         panelImage.setVerticalTextPosition(JLabel.TOP);
         panelImage.setHorizontalTextPosition(JLabel.CENTER);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the main panels
     public void setPanel() {
-
-//        list.add("what if the list is super long");
-//        list.add("how bout another one");
-
         inventoryPanel.add(inventoryList, BorderLayout.EAST);
 
         initializeLabels();
@@ -135,12 +147,16 @@ public class Hud {
         panel2.setVisible(false);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the side button for the main menu
     private void setSidePanelButtons() {
         setInvButton();
         setItemsButton();
         setMonstersButton();
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the main panel colors
     private void setPanelColors() {
         panel1.setBackground(Color.WHITE);
         panel2.setBackground(Color.WHITE);
@@ -148,12 +164,15 @@ public class Hud {
         panel2.setBorder(grayline);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the main panel dimensions
     private void setPanelDimensions() {
         panel1.setPreferredSize(new Dimension(150, 100));
         panel2.setPreferredSize(new Dimension(100, 220));
     }
 
-
+    //MODIFIES: this
+    // EFFECTS: initializes the transition panels
     public void initializeTransitionPanels() {
         initPanel = new JPanel();
         startMenu = new JPanel();
@@ -167,6 +186,8 @@ public class Hud {
         cl = new CardLayout();
     }
 
+    //MODIFIES: this
+    // EFFECTS: adds a start button to the beginning of the program
     public void addStartButton() {
         initPanel.setLayout(cl);
         startMenu.add(startButton);
@@ -176,6 +197,8 @@ public class Hud {
         startButton.setBounds(100, 200, 100, 50);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the transition panels
     public void setTransitionPanel() {
         initializeTransitionPanels();
         initializeButtons();
@@ -197,6 +220,8 @@ public class Hud {
         buttonActionListeners();
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the inventory panels and initializes inventory panels
     public void setInventoryPanel() {
 
         JPanel inventorySidePanel = new JPanel();
@@ -213,7 +238,8 @@ public class Hud {
 
     }
 
-
+    //MODIFIES: this
+    // EFFECTS: sets the item panels and initializes the panel buttons
     public void setItemPanel() {
         JPanel itemSidePanel = new JPanel();
         JButton buttonWoodenSword = new JButton();
@@ -236,6 +262,8 @@ public class Hud {
         itemsPanel.setBackground(Color.LIGHT_GRAY);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the iron sword menu
     public void setIronSwordButton(JPanel itemSidePanel, JButton buttonIronSword) {
         itemSidePanel.add(buttonIronSword);
         buttonIronSword.setText(ironSword.getName());
@@ -243,6 +271,8 @@ public class Hud {
         ironSwordActionListener(buttonIronSword);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the wooden sword menu
     public void setWoodenSwordButton(JPanel itemSidePanel, JButton buttonWoodenSword) {
         itemSidePanel.add(buttonWoodenSword);
         buttonWoodenSword.setText(woodenSword.getName());
@@ -250,6 +280,8 @@ public class Hud {
         woodenSwordActionListener(buttonWoodenSword);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the health potion menu
     public void setHealthPotionButton(JPanel itemSidePanel, JButton buttonHealthPotion) {
         itemSidePanel.add(buttonHealthPotion);
         buttonHealthPotion.setText(healthPotion.getName());
@@ -257,6 +289,8 @@ public class Hud {
         healthPotionActionListener(buttonHealthPotion);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the monsters menu graphics
     public void setMonsterPanel() {
         JPanel monsterSidePanel = new JPanel();
         JButton buttonSlime = new JButton();
@@ -275,6 +309,8 @@ public class Hud {
 
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the slime menu
     public void setSlimeButton(JPanel monsterSidePanel, JButton buttonSlime) {
         monsterSidePanel.add(buttonSlime);
         buttonSlime.setText(slime.getName());
@@ -282,6 +318,8 @@ public class Hud {
         slimeActionListener(buttonSlime);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the dragon menu
     public void setDragonButton(JPanel monsterSidePanel, JButton buttonDragon) {
         monsterSidePanel.add(buttonDragon);
         buttonDragon.setText(dragon.getName());
@@ -290,6 +328,8 @@ public class Hud {
 
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the buttons for the major menu transition buttons
     public void buttonActionListeners() {
         startButtonActionListener();
 
@@ -300,6 +340,8 @@ public class Hud {
         toMonstersActionListener();
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the inventory menu
     public void setInvButton() {
         panel1.add(toInv);
         toInv.setText("Inventory");
@@ -307,6 +349,8 @@ public class Hud {
 
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the items menu
     public void setItemsButton() {
         panel1.add(toItems);
         toItems.setText("Items");
@@ -314,12 +358,16 @@ public class Hud {
 
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for the monsters menu
     public void setMonstersButton() {
         panel1.add(toMonsters);
         toMonsters.setText("Monsters");
         toMonsters.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the iron sword button
     public void ironSwordActionListener(JButton buttonIronSword) {
         buttonIronSword.addActionListener(new ActionListener() {
             @Override
@@ -342,6 +390,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for equpping Iron Sword
     public void setEquipIS() {
         panel2.add(equipIS);
         equipIS.setText("Equip");
@@ -360,6 +410,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for adding Iron Sword to inv
     public void setAddInvIS() {
         panel2.add(addInvIS);
         addInvIS.setText("Add to Inventory");
@@ -376,6 +428,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the wooden sword button
     public void woodenSwordActionListener(JButton buttonWoodenSword) {
         buttonWoodenSword.addActionListener(new ActionListener() {
             @Override
@@ -398,6 +452,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for equpping Wooden Sword
     public void setEquipWS() {
         panel2.add(equipWS);
         equipWS.setText("Equip");
@@ -421,6 +477,8 @@ public class Hud {
 
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for adding Wooden Sword to inv
     public void setAddInvWS() {
         addInvWS.setText("Add to Inventory");
         panel2.add(addInvWS);
@@ -437,6 +495,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the health potion button
     public void healthPotionActionListener(JButton buttonHealthPotion) {
         buttonHealthPotion.addActionListener(new ActionListener() {
             @Override
@@ -458,6 +518,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the button for adding HealthPotion to inv
     public void setAddInvHP() {
         panel2.add(addInvHP);
         addInvHP.setText("Add to Inventory");
@@ -474,6 +536,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the slime button
     public void slimeActionListener(JButton buttonSlime) {
         buttonSlime.addActionListener(new ActionListener() {
             @Override
@@ -488,6 +552,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the dragon button
     public void dragonActionListener(JButton buttonDragon) {
         buttonDragon.addActionListener(new ActionListener() {
             @Override
@@ -502,6 +568,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the monsters button
     public void toMonstersActionListener() {
         toMonsters.addActionListener(new ActionListener() {
             @Override
@@ -517,6 +585,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the inventory button
     public void toInvActionListener() {
         toInv.addActionListener(new ActionListener() {
             @Override
@@ -532,6 +602,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the items button
     public void toItemsActionListener() {
         toItems.addActionListener(new ActionListener() {
             @Override
@@ -547,6 +619,8 @@ public class Hud {
         });
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the functionality for the start button
     public void startButtonActionListener() {
         startButton.addActionListener(new ActionListener() {
             @Override

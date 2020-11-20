@@ -1,6 +1,5 @@
 package ui;
 
-import model.items.HealthPotion;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -28,8 +27,6 @@ public class Gui extends JFrame implements ActionListener {
     JMenuItem loadItem;
     JMenuItem exitItem;
 
-    HealthPotion healthPotion = new HealthPotion();
-
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
@@ -37,29 +34,24 @@ public class Gui extends JFrame implements ActionListener {
 
 
     public Gui() {
-//        Inventory inv = new Inventory();
-//        inv.addItem(healthPotion);
-//        inv.addItem(healthPotion);
-//        JList jlist = new JList(inv.getInventoryName().toArray());
-
-//        frame.add(inventoryList);
         initializeJSon();
         setJFrame();
         setTransitionPanels();
         setFileMenu();
         hud.setPanel();
-        frame.add(hud.panel2,BorderLayout.SOUTH);
-        frame.add(hud.panel1,BorderLayout.WEST);
-
-
-
+        frame.add(hud.panel2, BorderLayout.SOUTH);
+        frame.add(hud.panel1, BorderLayout.WEST);
     }
 
+    //MODIFIES: this
+    // EFFECTS: initializes the JSON file
     public void initializeJSon() {
         jsonReader = new JsonReader(JSON_STORE);
         jsonWriter = new JsonWriter(JSON_STORE);
     }
 
+    //MODIFIES: this
+    // EFFECTS: sets the main JFrame
     public void setJFrame() {
         frame.setSize(600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,27 +65,8 @@ public class Gui extends JFrame implements ActionListener {
 
     }
 
-    public void setJLabel() {
-        // image resize from https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon
-        ImageIcon imageIcon = new ImageIcon("./data/connor.png"); // loads image to a imageIcon
-        Image image = imageIcon.getImage(); // transforms it
-        Image newimg = image.getScaledInstance(200, 200, Image.SCALE_SMOOTH); // scale it
-        imageIcon = new ImageIcon(newimg);  // change it back
-        label.setIcon(imageIcon);
-        label.setText("Only Pain");
-        label.setForeground(Color.GREEN);
-
-        label.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
-        label.setBackground(Color.black);
-        label.setOpaque(true);
-        label.setBorder(border);
-        label.setVerticalAlignment(JLabel.CENTER);
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setBounds(0, 0, 400, 250);
-
-    }
-
-
+    //MODIFIES: this
+    // EFFECTS: initializes the file menu and the icons
     public void setFileMenu() {
         fileMenu = new JMenu("File");
 
@@ -122,14 +95,19 @@ public class Gui extends JFrame implements ActionListener {
     }
 
 
-
+    //MODIFIES: this
+    // EFFECTS: sets transition panel to the JFrame
     public void setTransitionPanels() {
         hud.setTransitionPanel();
         frame.add(hud.initPanel);
 
     }
 
-
+    //MODIFIES: this
+    // EFFECTS: adds a menu bar at the top
+    //          if saveItem saves the game to JSON
+    //          if loadItem loads the game from JSON
+    //          if exitItem quits the game
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == saveItem) {
@@ -167,7 +145,7 @@ public class Gui extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(
                     null, "Successfully loaded!", "Loaded!", JOptionPane.PLAIN_MESSAGE);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null,"Unable to read from file: " + JSON_STORE);
+            JOptionPane.showMessageDialog(null, "Unable to read from file: " + JSON_STORE);
         }
     }
 }
