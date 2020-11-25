@@ -5,7 +5,6 @@ import model.items.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,11 +15,15 @@ public class InventoryTest {
     MainCharacter mc;
     HealthPotion item1;
     Weapon item2;
+    Item itemT;
+    Item itemF;
 
     @BeforeEach
     public void setup() {
         inv = new Inventory();
         mc = new MainCharacter("John",20,10);
+        itemT = new Item("Item","an item",true);
+        itemF = new Item("Item","an item",false);
         item1 = new HealthPotion();
         item2 = new WoodenSword();
     }
@@ -91,5 +94,11 @@ public class InventoryTest {
         x.add("HealthPotion");
         inv.addItem(item1);
         assertEquals(x.get(0) ,inv.getInventoryName().get(0));
+    }
+
+    @Test
+    public void testIsEquippable() {
+        assertTrue(itemT.isEquippable());
+        assertFalse(itemF.isEquippable());
     }
 }
