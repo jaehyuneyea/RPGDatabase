@@ -51,4 +51,9 @@ public abstract class CombatEntity {
     public int getAttack() {
         return attack;
     }
+
+    // EFFECTS: return intent of the entity,
+    //          true if hostile
+    //          false if not hostile
+    public abstract boolean getIntent();
 }

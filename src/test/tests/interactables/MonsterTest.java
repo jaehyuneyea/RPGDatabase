@@ -5,7 +5,7 @@ import model.interactables.Monster;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MonsterTest {
     Monster monster;
@@ -35,4 +35,8 @@ public class MonsterTest {
 //        assertEquals(10,mc.getCurrentHP());
 //    }
 
+    @Test
+    public void testGetIntent() {
+        assertTrue(monster.getIntent());
+    }
 }

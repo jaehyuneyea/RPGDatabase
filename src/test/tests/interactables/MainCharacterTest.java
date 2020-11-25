@@ -120,4 +120,9 @@ public class MainCharacterTest {
         mc.setCurrentlyEquipped(item1);
         assertEquals("sword", mc.getCurrentlyEquipped());
     }
+
+    @Test
+    public void testGetIntent() {
+        assertFalse(mc.getIntent());
+    }
 }

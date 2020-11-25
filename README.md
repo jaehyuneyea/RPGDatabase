@@ -46,6 +46,17 @@ something incredibly exciting to me.
 
 - As a user, I want to be able to save my inventory to a file
 - As a user, I want to be able to load my inventory from a file
+<br>
+<br>
+
+**Phase 4: Task 3**
+<br>
+As of right now my code (especially the GUI section) has:
+- low cohesion
+- very high coupling
+- I would work to split up the classes into smaller focused roles to increase cohesion
+- recognize the similarities in some of my methods and compile them into one smaller method
+
 
 
 

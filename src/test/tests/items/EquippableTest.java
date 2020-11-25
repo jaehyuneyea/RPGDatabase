@@ -20,4 +20,9 @@ public class EquippableTest {
     public void testConstructor() {
         assertTrue(testEquip.isEquippable());
     }
+
+    @Test
+    public void testIsEquippable() {
+        assertTrue(testEquip.isEquippable());
+    }
 }

@@ -5,8 +5,7 @@ import model.items.HealthPotion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HealthPotionTest {
     HealthPotion hp;
@@ -49,5 +48,9 @@ public class HealthPotionTest {
         assertEquals(17,mc.getCurrentHP());
     }
 
+    @Test
+    public void testIsEquippable() {
+        assertFalse(hp.isEquippable());
+    }
 
 }

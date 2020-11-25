@@ -21,6 +21,11 @@ public class MainCharacter extends CombatEntity {
         currentlyEquipped = "none";
     }
 
+    @Override
+    public boolean getIntent() {
+        return false;
+    }
+
 
     // MODIFIES: Monster
     // EFFECTS: inflicts damage on the monster by atk

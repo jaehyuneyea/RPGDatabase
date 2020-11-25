@@ -26,4 +26,8 @@ public class HealthPotion extends Item {
         }
     }
 
+    @Override
+    public boolean isEquippable() {
+        return false;
+    }
 }

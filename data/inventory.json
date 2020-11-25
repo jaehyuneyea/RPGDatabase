@@ -2,9 +2,19 @@
     "name": "My Inventory",
     "items": [
         {
+            "canEquip": false,
+            "name": "HealthPotion",
+            "detail": "A bottle containing a magical potion. Heals the user for 10 HP."
+        },
+        {
+            "canEquip": false,
+            "name": "HealthPotion",
+            "detail": "A bottle containing a magical potion. Heals the user for 10 HP."
+        },
+        {
             "canEquip": true,
-            "name": "Wooden Sword",
-            "detail": "A frail, weak wooden sword."
+            "name": "Iron Sword",
+            "detail": "A well-built sturdy sword composed of iron."
         },
         {
             "canEquip": true,

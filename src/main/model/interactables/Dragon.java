@@ -17,4 +17,5 @@ public class Dragon extends Monster {
     public String getDetail() {
         return detail;
     }
+
 }

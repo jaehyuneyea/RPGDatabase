@@ -10,4 +10,9 @@ public abstract class Equippable extends Item {
     public Equippable(String name, String detail, int atk) {
         super(name, detail, true);
     }
+
+    @Override
+    public boolean isEquippable() {
+        return true;
+    }
 }

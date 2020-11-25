@@ -15,6 +15,11 @@ public class Monster extends CombatEntity {
         super(name, hp, atk);
     }
 
+    @Override
+    public boolean getIntent() {
+        return true;
+    }
+
     // MODIFIES: character
     // EFFECTS: inflicts damage on the character of atk amount
 //    public void monsterAttack(){
